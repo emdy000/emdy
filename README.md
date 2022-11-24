@@ -41,19 +41,17 @@ emdy
 
 That's it. Emdy will interactively guide you through the rest.
 
-See it in action below.
+## Demonstrations
 
-<figure>
-    <img src="media/oss_demo.gif" alt="Using Emdy to generate an MIT License.">
-    <figcaption>Using Emdy to generate an MIT License.</figcaption>
-</figure>
+See Emdy in action.
 
-<br>
+### Generating an MIT License
 
-<figure>
-    <img src="media/cc_demo.gif" alt="Using Emdy to generate a CC BY-SA 4.0 License.">
-    <figcaption>Using Emdy to generate a CC BY-SA 4.0 License.</figcaption>
-</figure>
+![oss_demo.gif](media/oss_demo.gif)
+
+### Generating a CC BY-NC-SA 4.0 License
+
+![cc_demo.gif](media/cc_demo.gif)
 
 ## Acknowledgements
 
