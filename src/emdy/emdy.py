@@ -3,13 +3,14 @@ import re
 from datetime import datetime
 from pathlib import Path
 
+import click
 import inflect as ifl
 import pyperclip
 from InquirerPy.base import Choice
 from prompt_toolkit.document import Document
 from prompt_toolkit.validation import Validator, ValidationError
 
-import prompts
+from emdy import prompts
 
 inflect = ifl.engine()
 
@@ -125,21 +126,28 @@ def get_cc_license() -> str:
             "Share-Alike": "SA",
         }
 
-        return "BY-" + "-".join([props.get(prop, "Creative Commons Zero") for prop in result])
+        if "Zero (Public Domain)" in result:
+            return "Creative Commons Zero"
+        else:
+            return "BY-" + "-".join([props[prop] for prop in result])
 
     cc_dir = licenses_dir / "Creative-Commons-Markdown"
 
-    properties = prompts.select("Choose your license's properties.",
+    properties = prompts.select(message="Choose your license's properties.",
+                                instruction="For an Attribution-only license, skip this question with Control + D.",
                                 choices=[Choice(name="Non-Commercial", value="nc"),
                                          Choice(name="No Derivatives", value="nd"),
                                          Choice(name="Share-Alike", value="sa"),
                                          Choice(name="Zero (Public Domain)", value="zero")],
+                                mandatory=False,
                                 validate=CCPropertyValidator(),
                                 transformer=cc_property_transformer,
                                 multiselect=True).execute()
 
+    properties = properties or ["by"]
+
     if "zero" in properties:
-        license_text = (cc_dir / "latest" / "zero.markdown").read_text()
+        license_text = (cc_dir / "4.0" / "zero.markdown").read_text()
     else:
         versions = sorted([float(path.name) for path in cc_dir.glob("[0-9].[0-9]")])
         version = prompts.select(
@@ -149,12 +157,17 @@ def get_cc_license() -> str:
             default=max(versions),
         ).execute()
 
-        license_text = (cc_dir / str(version) / f"{'by-' + '-'.join(properties)}.markdown").read_text()
+        propstring = "-".join(properties)
+        if "by" not in propstring:
+            propstring = "by-" + propstring
+
+        license_text = (cc_dir / str(version) / f"{propstring}.markdown").read_text()
 
     return license_text
 
 
 def main():
+    print("Emdy © 2022-present celsius narhwal. Licensed under MIT (see --license).\n")
     category = prompts.select(
         message="Choose a category.",
         choices=[Choice(name="Open source licenses", value="oss"), Choice(name="Creative Commons licenses", value="cc")]
@@ -183,4 +196,20 @@ def main():
         pyperclip.copy(license_text)
 
 
-main()
+@click.command()
+@click.option("--license", "show_license", is_flag=True, help="See emdy's license.")
+def cli(show_license: bool):
+    if show_license:
+        print((Path(__file__).parent / "LICENSE.md").read_text())
+    else:
+        while True:
+            try:
+                main()
+                break
+            except KeyboardInterrupt:
+                print("\nExiting.")
+                break
+
+
+if __name__ == '__main__':
+    cli()
