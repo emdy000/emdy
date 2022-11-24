@@ -1,0 +1,17 @@
+{
+  "apache-v2.0.md": "Apache License 2.0",
+  "artistic-v2.0.md": "Artistic License 2.0",
+  "bsd-2.md": "BSD 2-Clause \"Simplified\" License",
+  "bsd-3.md": "BSD 3-Clause \"New\" or \"Modified\" License",
+  "epl-v1.0.md": "Eclipse Public License v1.0",
+  "gnu-agpl-v3.0.md": "GNU Affero General Public License v3.0",
+  "gnu-fdl-v1.3.md": "GNU Free Documentation License v1.3",
+  "gnu-gpl-v1.0.md": "GNU General Public License v1.0",
+  "gnu-gpl-v2.0.md": "GNU General Public License v2.0",
+  "gnu-gpl-v3.0.md": "GNU General Public License v3.0",
+  "gnu-lgpl-v2.1.md": "GNU Lesser General Public License v2.1",
+  "gnu-lgpl-v3.0.md": "GNU Lesser General Public License v3.0",
+  "mit.md": "MIT License",
+  "mpl-v2.0.md": "Mozilla Public License 2.0",
+  "unlicense.md": "The Unlicense"
+}

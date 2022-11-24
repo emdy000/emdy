@@ -1,0 +1,9 @@
+[submodule "src/emdy/licenses/markdown-licenses"]
+	path = src/emdy/licenses/markdown-licenses
+	url = https://github.com/IQAndreas/markdown-licenses
+[submodule "src/emdy/licenses/Creative-Commons-Markdown"]
+	path = src/emdy/licenses/Creative-Commons-Markdown
+	url = https://github.com/idleberg/Creative-Commons-Markdown
+[submodule "houkago-tea-tap"]
+	path = houkago-tea-tap
+	url = https://github.com/celsiusnarhwal/homebrew-htt
