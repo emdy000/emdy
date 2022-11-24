@@ -43,6 +43,18 @@ That's it. Emdy will interactively guide you through the rest.
 
 See it in action below.
 
+<figure>
+    <img src="media/oss_demo.gif" alt="Using Emdy to generate an MIT License.">
+    <figcaption>Using Emdy to generate an MIT License.</figcaption>
+</figure>
+
+<br>
+
+<figure>
+    <img src="media/cc_demo.gif" alt="Using Emdy to generate a CC BY-SA 4.0 License.">
+    <figcaption>Using Emdy to generate a CC BY-SA 4.0 License.</figcaption>
+</figure>
+
 ## Acknowledgements
 
 Emdy sources its Markdown-formatted licenses
