@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "emdy"
-version = "0.0.9"
+version = "1.0.0"
 description = "Generate open source and Creative Commons licenses from your command line"
 authors = ["celsius narhwal <hello@celsiusnarhwal.dev>"]
 readme = "README.md"
