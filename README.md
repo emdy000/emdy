@@ -6,7 +6,7 @@ Emdy generates Markdown-formattted open source and Creative Commons licenses fro
 
 ### pipx (recommended)
 
-The recommended, cross-platform way of installing Emdy is via [pipx](https://pypa.github.io/pipx/).
+The recommended, cross-platform, way of installing Emdy is via [pipx](https://pypa.github.io/pipx/).
 
 ```bash
 pipx install emdy
